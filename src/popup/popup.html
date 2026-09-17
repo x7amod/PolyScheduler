@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>SCOptimizer</title>
+<style>
+  :root { color-scheme: light; }
+  * { box-sizing:border-box; }
+  body { font-family:"Inter", "Aptos", "Segoe UI", system-ui, -apple-system, sans-serif; margin:0; padding:16px; width:350px; color:#172033; background:#f8faff; }
+  h1 { font-size:16px; line-height:1.15; letter-spacing:-.02em; margin:0; }
+  .muted { color:#667085; font-size:11px; line-height:1.45; }
+  .eyebrow { color:#3157d5; font-size:10px; font-weight:800; letter-spacing:.09em; text-transform:uppercase; }
+  .header { display:flex; align-items:flex-start; justify-content:space-between; gap:12px; margin-bottom:14px; }
+  .brand { display:grid; gap:4px; }
+  .status { color:#3157d5; background:#eef2ff; border:1px solid #cfd8ff; border-radius:999px; padding:4px 8px; font-size:10px; font-weight:800; white-space:nowrap; }
+  .card { border:1px solid #dfe5ef; border-radius:12px; padding:13px; margin-top:10px; background:#fff; box-shadow:0 4px 14px rgba(23,32,51,.05); }
+  .card-title { color:#172033; font-size:12px; font-weight:800; }
+  .summary { margin-top:5px; }
+  .detail { margin-top:10px; padding-top:10px; border-top:1px solid #edf0f5; overflow-wrap:anywhere; }
+  .kept { margin-top:7px; }
+  .row { display:flex; gap:8px; margin-top:12px; }
+  button { min-height:36px; border:1px solid #dfe5ef; border-radius:8px; padding:0 12px; cursor:pointer; font:inherit; font-size:12px; font-weight:750; background:#fff; color:#344054; transition:background 120ms ease,border-color 120ms ease,box-shadow 120ms ease; }
+  button:hover { background:#f8faff; border-color:#b8c3d6; }
+  button:focus-visible { outline:none; border-color:#3157d5; box-shadow:0 0 0 3px rgba(49,87,213,.15); }
+  .danger { color:#b93845; background:#fff; border-color:#efc8cc; }
+  .danger:hover { color:#a12e3a; background:#fff6f6; border-color:#e9aeb4; }
+  .workflow { display:flex; gap:9px; align-items:flex-start; }
+  .workflow-mark { width:7px; height:7px; flex:0 0 auto; margin-top:5px; border-radius:50%; background:#3157d5; }
+</style>
+</head>
+<body>
+  <div class="header">
+    <div class="brand"><div class="eyebrow">Banner planning tool</div><h1>SCOptimizer</h1></div>
+    <span class="status">Passive capture</span>
+  </div>
+  <div class="muted" id="summary">Loading...</div>
+  <div class="card">
+    <div class="card-title">Captured search data</div>
+    <div class="muted detail" id="detail">No data yet</div>
+    <div class="muted kept" id="kept"></div>
+    <div class="row">
+      <button id="clear" class="danger">Clear data</button>
+    </div>
+  </div>
+  <div class="card">
+    <div class="workflow"><span class="workflow-mark"></span><div class="muted">Search Banner, choose courses in the overlay, then select <b>Keep selected</b> to plan a schedule.</div></div>
+  </div>
+<script type="module" src="popup.js"></script>
+</body>
+</html>

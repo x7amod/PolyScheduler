@@ -1,0 +1,29 @@
+{
+  "manifest_version": 3,
+  "name": "SCOptimizer",
+  "version": "1.2.0",
+  "description": "Passive course capture for Banner SIS — aggregates Search Results and lets you keep only the courses you want before optimizing.",
+  "permissions": ["storage"],
+  "host_permissions": ["https://ban-reg.polytechnic.bh/*"],
+  "action": {
+    "default_title": "SCOptimizer",
+    "default_popup": "src/popup/popup.html"
+  },
+  "background": {
+    "service_worker": "src/background/sw.js"
+  },
+  "content_scripts": [
+    {
+      "matches": ["https://ban-reg.polytechnic.bh/StudentRegistrationSsb/*"],
+      "js": ["src/content/content.js", "src/content/optimizer-engine.js", "src/content/overlay.js", "src/content/optimizer-modal.js"],
+      "css": ["src/content/overlay.css", "src/content/optimizer-modal.css"],
+      "run_at": "document_start"
+    }
+  ],
+  "web_accessible_resources": [
+    {
+      "resources": ["src/content/interceptor-main.js", "src/content/overlay.css", "src/content/optimizer-modal.css"],
+      "matches": ["https://ban-reg.polytechnic.bh/*"]
+    }
+  ]
+}
